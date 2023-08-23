@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Prevent closing all your browser tabs</title>
+    </head>
+    <body>
+        <style>
+            .big {
+                font-size: 2rem;
+                font-weight: 700;
+            }
+            .red {
+                color: red;
+            }
+            .show {
+                display: block;
+            }
+            .hide {
+                display: none;
+            }
+        </style>
+        <script>
+            window.onload = () => {
+                document.getElementById("clickbait").addEventListener("click", (event) => {
+                    document.getElementById("shown-on-load").className = "hide";
+                    document.getElementById("hidden-on-load").className = "show";
+                });
+            }
+            window.onbeforeunload = function() { return "Would you really like to close your browser?"; }
+        </script>
+        <div id="shown-on-load" class="show">
+            <button id="clickbait" class="big red">Click me!</button>
+        </div>
+        <div id="hidden-on-load" class="hide">
+            Credits - <a href="https://maki-chan.de/preventclose.htm">https://maki-chan.de/preventclose.htm</a><br><br>
+            Or just use <code>Ctrl+Shift+T</code> if you accidentally close your browser :p
+            <hr>
+            Why the odd button?&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Glossary/Sticky_activation">This is why</a><br><br>
+        </div>
+    </body>
+</html>
